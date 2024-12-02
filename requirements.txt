@@ -1,0 +1,15 @@
+Flask==3.1.0
+google_api_python_client==2.154.0
+google_auth_oauthlib==1.2.1
+matplotlib==3.8.2
+mediapipe==0.10.18
+opencv_contrib_python==4.6.0.66
+opencv_python==4.6.0.66
+opencv_python_headless==4.9.0.80
+Pillow==11.0.0
+pytorch_lightning==2.4.0
+Requests==2.32.3
+torch==2.5.1+cu124
+torchmetrics==1.5.1
+torchvision==0.20.1+cu124
+tqdm==4.66.2
