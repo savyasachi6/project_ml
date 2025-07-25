@@ -31,12 +31,6 @@ def get_google_photos_service():
     return build('photoslibrary', 'v1', credentials=creds, static_discovery=False)
 
 
-# Home route to list albums
-# @app.route('/')
-# def list_albums():
-
-#     return redirect(url_for('albums'))
-
 @app.route('/')
 def home():
     global service
@@ -103,11 +97,6 @@ def select_album(album_id):
         # Redirect to train_model with the preprocessed folder
         return redirect(url_for('train_model', folder_path=output_folder))
 
-        # Redirect to the training step
-    #return redirect(url_for('preprocess_faces', input_folder=folder_path))
-
-    # Render the confirmation template
-    #return render_template('confirm_download.html', album_id=album_id)
 
 # Function to download a media item
 def download_media_item(media_item, folder_path):
@@ -122,22 +111,7 @@ def download_media_item(media_item, folder_path):
 
     print(f'Downloaded {filename}')
 
-# @app.route('/preprocess_faces', methods=['GET', 'POST'])
-# def preprocess_faces():
-#     if request.method == 'POST':
-#         # Input and output directories
-#         input_folder = request.form['input_folder'] # folders possilbe injections in future
-#         output_folder=path.join(input_folder,'faces')
-#         os.mkdir(output_folder)
-#         # Preprocess faces using the helper class
-#         preprocessor = FacePreprocessor(input_folder=input_folder, output_folder=output_folder)
-#         preprocessor.preprocess_faces()
 
-#         # Redirect to training step
-#         return redirect(url_for('train_model', folder_path=output_folder))
-
-#     # Render the form for face preprocessing
-#     return render_template('preprocess_faces.html')
 @app.route('/train_model', methods=['GET', 'POST'])
 def train_model():
     folder_path = request.args.get('folder_path')
